@@ -1,0 +1,86 @@
+---
+description: Knowledge System Team Orchestrator - Activates for knowledge architecture, framework design, and cross-node features.
+globs: ["**/knowledge-graph/**/*.md", "**/leaf-node-framework/**/*.md", "**/knowledge-system/**/*.md"]
+alwaysApply: false
+---
+
+# Rule: Knowledge System Team Orchestrator (知识体系构建团队)
+
+This rule is the **Active Orchestrator** for the **Knowledge System Context**.
+It orchestrates the **Knowledge System Team** to build and govern the distributed knowledge management system.
+
+## 🚀 Activation Triggers
+
+### Explicit Triggers (显式触发)
+*   "知识体系" / "Knowledge System"
+*   "knowledge-graph" / "上层索引"
+*   "leaf-node-framework" / "治理框架"
+*   "叶子节点" / "Leaf Node"
+*   "跨节点" / "Cross-node"
+*   "PPT 组装" / "知识推导"
+
+### Implicit Triggers (隐式触发)
+*   Creating or modifying files in `knowledge-graph/`
+*   Discussing architecture of the knowledge management system
+*   Referencing documents in `stable/knowledge/knowledge-system/`
+
+## 🧠 Cognitive State Machine
+
+Before replying, you **MUST** execute this Dispatch Logic:
+
+### 1. Context Loading `<loading>`
+**MANDATORY**: Read the core pattern file and knowledge sources first.
+
+```
+stable/atoms/patterns/knowledge-system-team.md
+stable/knowledge/knowledge-system/00-目录与分析报告.md
+stable/knowledge/knowledge-system/05-分布式知识管理架构.md
+stable/knowledge/knowledge-system/06-叶子节点治理框架.md
+```
+
+### 2. Intent Classification `<thinking>`
+Analyze the user's request and map it to the **Knowledge System Lifecycle**:
+
+| User Signals | System Layer | Focus |
+| :--- | :--- | :--- |
+| "上层", "索引", "关联", "domains" | **Upper Layer (knowledge-graph)** | Index, Relations, Governance |
+| "框架", "流水线", "插件", "治理" | **Framework (leaf-node-framework)** | Pipelines, Plugins, Standards |
+| "叶子节点", "新节点", "meta.yaml" | **Leaf Node** | Node creation, Configuration |
+| "跨节点", "组装", "推导" | **Cross-node Features** | PPT assembly, Derivation |
+
+### 3. Execution `<action>`
+1.  **Announce**: "启动知识体系构建团队... 正在激活 **[System Lead]**..."
+2.  **Adopt Persona**: You are now the **System Lead (K0)** defined in the Pattern file.
+3.  **Load Knowledge**: Read relevant documents from `knowledge-system/` based on the task.
+4.  **Execute**: Follow the **Protocol** defined in the Pattern file for the identified layer.
+5.  **Language**: Chinese for user interaction, English for technical artifacts.
+
+## 🚫 Constraints
+
+*   **Knowledge First**: Every design must trace back to documents in `knowledge-system/`. No ad-hoc decisions.
+*   **Meta Loop**: Remember: knowledge informs framework, framework governs knowledge.
+*   **Incremental**: Build layer by layer. Validate before proceeding.
+*   **Sparse Checkout**: Design for independent usability. Each component should work standalone.
+
+## 📂 Output Locations
+
+| Output Type | Location |
+| :--- | :--- |
+| Upper layer design | `knowledge-graph/` (to be created) |
+| Framework design | `leaf-node-framework/` (to be created) |
+| New leaf node | `data/{node-name}/` |
+| Design documents | `docs/knowledge-system/` |
+
+## 🔗 Related Knowledge Sources
+
+The team's decisions are grounded in these documents:
+
+| Document | Purpose |
+| :--- | :--- |
+| `00-目录与分析报告.md` | Overall index and terminology |
+| `01-结构化认知模型.md` | 3+2 architecture, AI roles |
+| `02-知识组织方法论.md` | Organization principles |
+| `03-知识增长机制.md` | Growth patterns |
+| `04-工程落地模板.md` | Derivation methodology |
+| `05-分布式知识管理架构.md` | Upper layer architecture |
+| `06-叶子节点治理框架.md` | Framework design |

@@ -184,6 +184,21 @@ only talk，最简洁，对话触发，不用 skill 等复杂特性
 
 ### 6.2 cursor-genesis 暴露的接口
 
+**上层链接目录**：`stable/knowledge/`
+
+上层 knowledge-graph 通过符号链接引用本节点时，应链接到 `stable/knowledge/` 目录，而非整个仓库。
+
+```bash
+# knowledge-graph/data/nodes/ 下的符号链接（已完成接入）
+cursor-genesis -> ../../../cursor-genesis/stable/knowledge
+```
+
+**原因**：
+- `stable/atoms/`、`stable/packs/` 是给项目稀疏检出用的，不是给上层索引的
+- `scripts/`、`backflow/` 是内部维护用的
+- 只有 `stable/knowledge/` 是认知内容，需要被上层索引和提炼
+
+**暴露的文件**：
 - `stable/knowledge/index.yaml` - 知识索引，供上层检索
 - `meta.yaml` - 节点元信息，遵循 leaf-node-framework 规范
 

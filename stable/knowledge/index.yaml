@@ -26,6 +26,41 @@ categories:
     path: learnings/
     items: []  # 待迁移填充
 
+  knowledge-system:
+    description: 知识体系设计文档
+    path: knowledge-system/
+    items:
+      - id: overview
+        title: 目录与分析报告
+        file: 00-目录与分析报告.md
+      - id: cognitive-model
+        title: 结构化认知模型
+        file: 01-结构化认知模型.md
+      - id: organization
+        title: 知识组织方法论
+        file: 02-知识组织方法论.md
+      - id: growth
+        title: 知识增长机制
+        file: 03-知识增长机制.md
+      - id: engineering
+        title: 工程落地模板
+        file: 04-工程落地模板.md
+      - id: distributed-arch
+        title: 分布式知识管理架构
+        file: 05-分布式知识管理架构.md
+      - id: leaf-framework
+        title: 叶子节点治理框架
+        file: 06-叶子节点治理框架.md
+      - id: architecture-thinking
+        title: 架构思维与应用路径
+        file: 07-架构思维与应用路径.md
+      - id: theory-mapping
+        title: 理论模型与实现形态的映射
+        file: 08-理论模型与实现形态的映射.md
+      - id: architecture-source
+        title: 架构思维的来源
+        file: 09-架构思维的来源.md
+
 # 关键词（供上层跨节点检索）
 keywords:
   - cursor
@@ -35,3 +70,7 @@ keywords:
   - rules
   - capabilities
   - patterns
+  - 知识体系
+  - knowledge-graph
+  - leaf-node-framework
+  - 分布式知识管理

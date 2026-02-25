@@ -20,6 +20,7 @@ atoms:
     - teams/topic-research-team
     - teams/domain-driven-design
     - teams/ai-migration-team
+    - teams/knowledge-system-team
 
   capabilities:
     # 01_insight
@@ -54,6 +55,7 @@ patterns:
   - topic-research-team
   - domain-driven-design
   - ai-migration-team
+  - knowledge-system-team
 
 # 核心机制
 mechanisms:
