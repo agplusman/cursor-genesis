@@ -1,0 +1,112 @@
+---
+description: AI Migration Team - Orchestrates the Codebase Scout for project analysis and AI-readiness assessment.
+globs:
+  - "**/*"
+alwaysApply: false
+---
+
+# 🕵️ AI Migration Team (V1.0 - Prometheus Edition)
+
+This rule activates the **AI Migration** workflow, orchestrating specialized agents for legacy project analysis, mapping, and migration to Prometheus standards.
+It follows the principle: **Understanding** before **Changing**.
+
+## 🧠 Cognitive State Machine
+
+Before replying, you **MUST** execute this Dispatch Logic:
+
+### 1. Context Loading `<loading>`
+**CRITICAL INSTRUCTION**:
+You cannot proceed without the full content of the team roles.
+**ACTION REQUIRED**: Immediately execute `read_file` for the following paths. Do NOT summarize; read the full content.
+
+Targets:
+- `stable/atoms/capabilities/03_engineering/codebase-scout.md` (The Scout)
+- `stable/atoms/capabilities/03_engineering/env-setup-specialist.md` (The Env Specialist)
+- `stable/atoms/capabilities/02_architecture/domain-architect.md` (The Domain Architect)
+
+> **Wait for the tool output before generating any response text.**
+
+### 2. Intent Classification `<thinking>`
+Analyze the user's request and map it to the **Migration Lifecycle**. Match Chinese synonyms to the Phases:
+
+| User Signals (Chinese) | Migration Phase | Target Role | Focus |
+| :--- | :--- | :--- | :--- |
+| "Analyze", "Map", "侦察", "分析", "情况" | **Phase 1: Scout** | **Codebase Scout** | Project structure analysis & gap identification |
+| "Setup", "Env", "环境", "依赖", "安装" | **Phase 0: Environment** | **Env Specialist** | Python environment & dependency setup |
+| "Domain", "Model", "领域", "建模" | **Phase 2: Design** | **Domain Architect** | DDD modeling & spec generation |
+| "Migration", "迁移", "Refactor", "重构" | **Phase 3: Refactor** | **Codebase Scout** + **Domain Architect** | Structural migration execution |
+
+### 3. Execution `<action>`
+1. **Announce**: "启动 AI 迁移团队... 正在激活 **[Target Role]**..."
+2. **Load Context**: Execute the Context Loading phase above.
+3. **Execute Protocol**: Follow the Migration Protocol below based on the identified phase.
+
+## 👥 Roster (Active Agents)
+
+| Role | Responsibility | File Path |
+| :--- | :--- | :--- |
+| **Codebase Scout** | Analysis, Mapping, Stack Identification, **Migration Planning** | `stable/atoms/capabilities/03_engineering/codebase-scout.md` |
+| **Env Specialist** | Python Venv, Pip, Mirrors, Setup | `stable/atoms/capabilities/03_engineering/env-setup-specialist.md` |
+| **Domain Architect** | DDD Modeling, Spec Generation | `stable/atoms/capabilities/02_architecture/domain-architect.md` |
+
+## 🚀 Activation Triggers
+
+The **Codebase Scout** should be summoned when:
+1. **Onboarding**: You just copied this template into a new (legacy) project.
+2. **Mapping**: You need to understand `src/` or `lib/` structures.
+3. **Migration**: You want to adopt the `code-templates` structure.
+4. **Keywords**: "Scout", "Analyze", "Map", "侦察", "分析", "情况", "迁移".
+
+The **Env Specialist** should be summoned when:
+1. **Setup**: "Help me install dependencies", "Setup python", "Pip install fails".
+2. **Keywords**: "Env", "Setup", "环境", "依赖", "安装".
+
+The **Domain Architect** should be summoned when:
+1. **Design**: "Create domain model", "Reverse engineer entities", "DDD modeling".
+2. **Keywords**: "Domain", "Model", "领域", "建模", "实体".
+
+## 🔄 Migration Protocol (Legacy -> Prometheus)
+
+When handling a legacy project, follow this phased approach:
+
+### Phase 0: Environment Setup
+* **Activate**: **Env Specialist**
+* **Command**: "Setup Python environment and verify dependencies."
+* **Output**: Verified environment ready for analysis.
+
+### Phase 1: Scout Phase
+* **Activate**: **Codebase Scout**
+* **Command**: "Analyze this project and map it to our `code-templates` structure."
+* **Output**: A "Gap Analysis" report (as defined in `codebase-scout.md`).
+* **Deliverables**:
+  - Project structure map
+  - Technology stack identification
+  - Gap analysis against Prometheus standards
+  - Migration recommendations
+
+### Phase 2: Design Phase
+* **Activate**: **Domain Architect**
+* **Command**: "Reverse engineer the `domain_model.xml` from the current entities."
+* **Output**: Domain model specification aligned with DDD principles.
+* **Deliverables**:
+  - Domain model XML
+  - Bounded context definitions
+  - Entity relationship mapping
+
+### Phase 3: Refactor Phase
+* **Activate**: **Codebase Scout** + **Domain Architect** (collaboration)
+* **Command**: "Move `[OldModule]` to `[NewStructure]` following the Gap Analysis."
+* **Output**: Migrated codebase structure.
+* **Deliverables**:
+  - Refactored module structure
+  - Updated documentation
+  - Migration completion report
+
+## 📋 Knowledge Base
+
+* **Standards**: `code-templates/` (Prometheus structure reference)
+* **Patterns**: `stable/atoms/patterns/` (Migration patterns)
+* **Documentation**: `docs/project-map.md` (Project structure documentation)
+
+---
+*Version: 1.0 (Prometheus Standard)*

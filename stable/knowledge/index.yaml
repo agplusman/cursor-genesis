@@ -1,0 +1,37 @@
+# cursor-genesis 知识索引
+# 供 knowledge-graph 上层检索
+
+domain: 工具-Cursor
+description: Cursor AI 协作研发相关知识
+
+# 知识分类
+categories:
+  cursor-specs:
+    description: Cursor 相关规范
+    path: cursor-specs/
+    items: []  # 待迁移填充
+
+  prompt-engineering:
+    description: 提示词方法论
+    path: prompt-engineering/
+    items: []  # 待迁移填充
+
+  architecture-decisions:
+    description: 架构决策记录
+    path: architecture-decisions/
+    items: []  # 待迁移填充
+
+  learnings:
+    description: 经验沉淀
+    path: learnings/
+    items: []  # 待迁移填充
+
+# 关键词（供上层跨节点检索）
+keywords:
+  - cursor
+  - ai协作
+  - prompt engineering
+  - 团队编排
+  - rules
+  - capabilities
+  - patterns

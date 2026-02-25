@@ -1,0 +1,61 @@
+# v1-talk 套装
+# 定位：only talk，最简洁，对话触发，不用 skill 等复杂特性
+
+name: v1-talk
+description: |
+  面向普通用户的简化版套装。
+  通过自然对话触发团队协作，无需了解底层细节。
+version: 1.0.0
+audience: beginner
+
+# 引用原子层
+atoms:
+  rules:
+    - 01-project-rules
+    - 02-project-playbook
+    - 03-user-preferences
+    - project-map-summary
+    - teams/virtual-streamlit-team
+    - teams/strategic-research-team
+    - teams/topic-research-team
+    - teams/domain-driven-design
+    - teams/ai-migration-team
+
+  capabilities:
+    # 01_insight
+    - 01_insight/concept-decoder
+    - 01_insight/market-analyst
+    - 01_insight/technical-pm
+    - 01_insight/topic-guide
+    - 01_insight/literature-hunter
+    # 02_architecture
+    - 02_architecture/systems-designer
+    - 02_architecture/project-mapper
+    - 02_architecture/tech-feasibility-auditor
+    - 02_architecture/prometheus-prompt-engineer
+    - 02_architecture/research-architect
+    - 02_architecture/domain-architect
+    # 03_engineering
+    - 03_engineering/streamlit-expert
+    - 03_engineering/code-maintainer
+    - 03_engineering/python-distributor
+    - 03_engineering/research-executor
+    - 03_engineering/codebase-scout
+    - 03_engineering/env-setup-specialist
+    # 04_quality
+    - 04_quality/rubric-specialist
+    - 04_quality/logic-auditor
+    - 04_quality/experiment-designer
+
+# 包含的团队模式
+patterns:
+  - virtual-streamlit-team
+  - strategic-research-team
+  - topic-research-team
+  - domain-driven-design
+  - ai-migration-team
+
+# 核心机制
+mechanisms:
+  routing: 动态路由，rules/teams/*.mdc 通过决策矩阵自动分发
+  cognition: Think-First 法则 + 强制 <thinking> 块

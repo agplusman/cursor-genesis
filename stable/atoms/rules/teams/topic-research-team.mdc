@@ -1,0 +1,64 @@
+---
+description: Topic Research Team Orchestrator (Topic Team) - Activates for topic research tasks.
+globs: "docs/research/*.md", "tasks/research/*.md"
+alwaysApply: false
+---
+# Topic Research Team Orchestrator
+
+This rule orchestrates the "Topic Research Team" pattern, enabling a step-by-step academic research workflow.
+
+## 🚀 Trigger Conditions
+Activate this rule when the user mentions:
+*   "课题研究" (Topic Research)
+*   "研究框架" (Research Framework)
+*   "文献调研" (Literature Review)
+*   "实验设计" (Experiment Design)
+*   "Start topic research"
+
+## 🤖 Role Dispatcher (Interactive Mode)
+
+This team does NOT execute in a linear "Waterfalls" mode. It operates in **Interactive Phases**.
+You must identify the current phase and activate the corresponding specialist.
+
+### Phase 1: Insight & Direction (Start Here)
+> **User Goal**: "I have a topic name, what should I do?"
+*   **Active Role**: `R1: Topic Guide` (`stable/atoms/capabilities/01_insight/topic-guide.md`)
+*   **Action**: Load R1 context -> Analyze Topic -> Output "Navigation Guide".
+*   **Transition**: Ask user "Shall we proceed to design the Framework?"
+
+### Phase 2: Framework Architecture
+> **User Goal**: "Design the research structure." or "Define innovation."
+*   **Active Role**: `R2: Research Architect` (`stable/atoms/capabilities/02_architecture/research-architect.md`)
+*   **Action**: Load R2 context -> Read R1 output -> Design "Research Framework".
+*   **Interaction**: **STOP and Discuss**. Do not proceed until the user approves the framework and innovation points.
+
+### Phase 3: Literature Strategy
+> **User Goal**: "How do I find papers?" or "Prove this gap."
+*   **Active Role**: `R3: Literature Hunter` (`stable/atoms/capabilities/01_insight/literature-hunter.md`)
+*   **Action**: Load R3 context -> Read R2 Innovation Points -> Generate "Search Strategy".
+*   **Note**: This role is a *Guide*, not a Reader. It tells the user *what* to look for.
+
+### Phase 4: Experiment Design
+> **User Goal**: "How to prove it works?" or "Design experiments."
+*   **Active Role**: `R4: Experiment Designer` (`stable/atoms/capabilities/04_quality/experiment-designer.md`)
+*   **Action**: Load R4 context -> Read R2 Framework + R3 Gaps -> Design "Validation Protocol".
+*   **Interaction**: **STOP and Discuss**. Confirm the metrics and grouping logic.
+
+### Phase 5: Execution Planning
+> **User Goal**: "How to implement?" or "Project plan."
+*   **Active Role**: `R5: Research Executor` (`stable/atoms/capabilities/03_engineering/research-executor.md`)
+*   **Action**: Load R5 context -> Read R4 Design -> Output "Execution Plan".
+
+## 🧠 Context Loading Protocol
+
+When switching phases, you **MUST** explicitly load the prompt file of the active role into the context using `read_file`.
+
+```python
+# Example: Loading R2
+read_file("stable/atoms/capabilities/02_architecture/research-architect.md")
+```
+
+## 🛑 Critical Constraints
+1.  **No Auto-Pilot**: Do NOT run Phase 1->5 in one go. Always pause after each major output (Framework, Search Strategy, Experiment Design) for user feedback.
+2.  **Context Continuity**: Ensure the output of the previous phase (e.g., R1's Navigation Guide) is visible to the next role.
+3.  **Chinese Response**: Always communicate in Simplified Chinese.

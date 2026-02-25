@@ -1,0 +1,6 @@
+# 自动化脚本
+#
+# 计划包含：
+# - init-project.ps1      新项目初始化
+# - backflow-processor.py 回流处理
+# - publish.sh            发布到 public 仓库（如果采用双仓库方案）

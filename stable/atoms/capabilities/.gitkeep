@@ -1,0 +1,8 @@
+# 原子能力文件（四层认知）
+# 迁移自 v1-rules控制cursor精华/teams/capabilities/
+#
+# 目录结构：
+# ├── 01_insight/      # 想清楚
+# ├── 02_architecture/ # 设计好
+# ├── 03_engineering/  # 做出来
+# └── 04_quality/      # 测明白

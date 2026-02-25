@@ -1,0 +1,36 @@
+<domain_model>
+    <!--
+    This is the "Logical Map" of your business.
+    It is NOT the physical database schema (Schema.xml), but the high-level understanding.
+    -->
+
+    <!-- Example: Service Domain -->
+    <context name="Service" description="The core product capability">
+        <entity name="ServiceDefinition">
+            <attr name="id" type="string" />
+            <attr name="type" type="enum" />
+            <attr name="version" type="string" />
+        </entity>
+    </context>
+
+    <!-- Example: Customer Domain -->
+    <context name="Customer" description="The consumer of services">
+        <entity name="Application">
+            <attr name="app_id" type="string" />
+            <attr name="auth_method" type="enum" />
+        </entity>
+
+        <!-- The Association -->
+        <relationship type="binding" source="Application" target="ServiceDefinition">
+            <rule>Many-to-Many via mapping table</rule>
+        </relationship>
+    </context>
+
+    <!-- Example: Resource Domain -->
+    <context name="Resource" description="Physical Assets">
+        <entity name="DataTable">
+            <attr name="table_name" type="string" />
+        </entity>
+    </context>
+
+</domain_model>

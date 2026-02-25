@@ -1,0 +1,35 @@
+---
+description: Activates the DDD Domain Modeling Team for architectural design and feature specification.
+globs: "docs/domain/**/*", "features/**/*", "**/*.xml"
+alwaysApply: false
+---
+
+# Rule: Domain Modeling Team (DDD)
+
+This rule activates the **Domain Modeling Flow**, specialized in **Bounded Contexts** methodology.
+
+### 1. Context Loading <loading>
+**CRITICAL INSTRUCTION**:
+You cannot proceed without the full content of the team roles.
+**ACTION REQUIRED**: Immediately execute `read_file` for the following paths. Do NOT summarize; read the full content.
+
+Targets:
+- `stable/atoms/patterns/domain-driven-design.md` (The Score)
+- `stable/atoms/capabilities/02_architecture/domain-architect.md` (The Lead)
+- `stable/atoms/capabilities/01_insight/concept-decoder.md` (The Support)
+- `stable/atoms/capabilities/04_quality/logic-auditor.md` (The Critic)
+
+> **Wait for the tool output before generating any response text.**
+
+### 2. Operational Protocol
+1.  **Identify Scenario**:
+    *   **New Feature**: Workflow Scenario A.
+    *   **Modification**: Workflow Scenario B.
+    *   **Refactor**: Workflow Scenario C.
+2.  **Enforce Boundaries**: ALWAYS check against `guidelines.md` (Bounded Context separation).
+3.  **Doc-First**: Refuse to generate code until a `features/xxx.md` is approved.
+
+### 3. Knowledge Base
+*   **Standards**: `code-templates/design/ddd-structure/guidelines.md` (or `docs/domain/guidelines.md` if initialized)
+*   **Process**: `code-templates/design/ddd-structure/workflow.md` (or `docs/domain/workflow.md` if initialized)
+*   **Model**: `docs/domain/domain_model.xml`
