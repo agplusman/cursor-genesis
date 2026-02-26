@@ -3,17 +3,80 @@
 
 id: cursor-genesis
 name: Cursor 协作模板
-version: 1.0.0
+version: 1.2.0
 domain: 工具-Cursor
 description: |
   Cursor AI 协作研发的组件库和知识库。
   包含 Rules、Capabilities、Patterns、Code Templates 等可复用资产。
 
-# 框架配置（预留，待 knowledge-graph 建立后启用）
+# 框架配置
 framework:
-  source: knowledge-graph/leaf-node-framework
-  version: v1.0
-  pipeline: standard
+  upstream: knowledge-graph
+  index_file: stable/knowledge/index.yaml
+  export_path: stable/knowledge/exports/
+  reporting:
+    method: git_sparse_checkout
+    description: 通过 exports/ 目录上报内容，上游用稀疏检出拉取
+
+# 上游交互
+receives_from_upper:
+  # AI 通用知识（跨工具适用）
+  - type: ai_general_knowledge
+    description: AI 协作的通用原则和方法论
+    source: knowledge-graph/index/topics/ai-collaboration.yaml
+    usage: 作为设计提示词和团队编排的理论依据
+    auto_pull: false
+
+  # 根事实库
+  - type: root_facts
+    description: 认知科学、计算理论等根事实
+    source: knowledge-graph/roots/*.yaml
+    usage: 作为设计决策的推导起点
+    auto_pull: false
+
+  # 叶子节点规范
+  - type: leaf_node_spec
+    description: 叶子节点的通用规范
+    source: knowledge-graph/meta/leaf-node-spec.md
+    usage: 遵循规范组织内容和上报
+    auto_pull: true
+
+# 自维护知识（不从上游获取）
+self_maintained:
+  - type: cursor_tool_docs
+    description: Cursor IDE 使用文档和 API 规范
+    reason: 仅在 cursor-genesis 中有用，不具备跨工具通用性
+  - type: cursor_best_practices
+    description: Cursor 特定的最佳实践和使用技巧
+    reason: 工具特定知识，上游不需要维护
+  - type: implementation_details
+    description: Rules/Capabilities/Patterns 的具体实现
+    reason: 应用形式的具体内容，由本节点负责
+
+reports_to_upper:
+  # 能力变更（必须）
+  - type: capability_change
+    required: true
+    description: 新增或变更的能力（能解决什么新问题）
+    trigger: 当新增 rule/capability/pattern 时
+    format: 问题域 + 解决方案摘要 + 适用场景
+    export_to: stable/knowledge/exports/capability-changes/
+
+  # 精炼知识（可选）
+  - type: refined_knowledge
+    required: false
+    description: 从下游项目回流中整理的通用解决方案
+    trigger: 当下游回流被审批合入后
+    format: 问题描述 + 解决思路 + 适用场景（不含项目特定代码）
+    export_to: stable/knowledge/exports/refined-knowledge/
+
+  # 方案反馈（可选）
+  - type: solution_feedback
+    required: false
+    description: 对当前方案边界/局限性的新发现
+    trigger: 当发现新的边界或局限性时
+    format: 发现内容 + 影响范围 + 建议
+    export_to: stable/knowledge/exports/feedback/
 
 # 节点职责
 responsibilities:
@@ -34,6 +97,24 @@ lifecycle:
 
 # 版本记录
 changelog:
+  - version: 1.2.0
+    date: 2026-02-26
+    changes:
+      - 新增 Skills 层：封装工具和命令的使用方式
+      - 新增 kg-search skill：搜索 knowledge-graph 中的知识
+      - 新增 kg-assemble skill：组装主题内容
+      - 新增 cg-install skill：安装 cursor-genesis 资源
+      - 新增 resources-catalog.yaml：可用资源清单
+      - 新增 install.sh：自动化安装脚本
+      - 支持预设配置（minimal/standard/full-stack/research/knowledge-management）
+  - version: 1.1.0
+    date: 2026-02-26
+    changes:
+      - 完善知识索引：为所有知识项添加 solves 字段（问题导向索引）
+      - 补充 cursor-specs 类别的 8 个索引项
+      - 新增下游集成规范文档 docs/downstream-spec.md
+      - 新增回流操作文档 backflow/README.md 和提交模板 backflow/TEMPLATE.md
+      - 激活 framework 配置，明确与 knowledge-graph 的集成关系
   - version: 1.0.0
     date: 2026-02-25
     changes:
