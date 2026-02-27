@@ -61,11 +61,18 @@ leaf-node/
 ├── commands/
 │   ├── sync.md                 # /sync - 从上游同步
 │   ├── backflow.md             # /backflow - 处理下游回流
-│   └── export.md               # /export - 向上游上报
+│   ├── export.md               # /export - 向上游上报
+│   └── visualize.md            # /visualize - 叶子节点可视化
 ├── skills/
 │   ├── node-sync.skill.yaml    # 节点同步技能
 │   ├── node-backflow.skill.yaml # 节点回流技能
-│   └── node-export.skill.yaml  # 节点上报技能
+│   ├── node-export.skill.yaml  # 节点上报技能
+│   └── node-visualize.skill.yaml # 可视化 skill
+├── visualizer/                 # 可视化引擎模板（React + Vite）
+│   ├── src/
+│   ├── public/
+│   │   └── config.yaml         # 示例配置，安装时替换为叶子节点自己的配置
+│   └── package.json
 ├── subagents/
 │   └── node-manager.yaml       # 节点管理子代理
 └── rules/
@@ -94,10 +101,20 @@ git sparse-checkout set stable/packs/knowledge-manage/leaf-node
 
 # 3. 复制到项目
 cd ..
-cp -r .cursor-genesis-temp/stable/packs/knowledge-manage/leaf-node/* .cursor/
+# 复制 Cursor 配置（commands, skills, rules 等）
+cp -r .cursor-genesis-temp/stable/packs/knowledge-manage/leaf-node/commands .cursor/
+cp -r .cursor-genesis-temp/stable/packs/knowledge-manage/leaf-node/skills .cursor/
+# 复制可视化引擎到 .knowledge/
+mkdir -p .knowledge
+cp -r .cursor-genesis-temp/stable/packs/knowledge-manage/leaf-node/visualizer .knowledge/visualizer
+cp .cursor-genesis-temp/stable/packs/knowledge-manage/leaf-node/visualizer/public/config.yaml .knowledge/visualizer.yaml
+# 若有 rules、subagents 等也需复制
+cp -r .cursor-genesis-temp/stable/packs/knowledge-manage/leaf-node/rules .cursor/ 2>/dev/null || true
+cp -r .cursor-genesis-temp/stable/packs/knowledge-manage/leaf-node/subagents .cursor/ 2>/dev/null || true
+
 rm -rf .cursor-genesis-temp
 
-# 4. 定制化
+# 5. 定制化
 # 编辑 .cursor/ 中的文件，添加 VSCode 特定的内容
 ```
 

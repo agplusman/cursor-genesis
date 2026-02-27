@@ -1,32 +1,29 @@
-# exports/ 目录说明
+# Exports 目录
 
-## 用途
-
-存放待上报到 knowledge-graph 的精炼内容。
+此目录用于向 knowledge-graph 上报内容。
 
 ## 目录结构
 
 ```
 exports/
-├── capability-changes/    # 能力变更
-├── refined-knowledge/     # 精炼知识
-└── feedback/             # 方案反馈
+├── capability-changes/    # 能力变更（必须）
+├── refined-knowledge/     # 精炼知识（可选）
+└── feedback/              # 方案反馈（可选）
 ```
 
-## 使用流程
+## 上报流程
 
-1. 将精炼后的内容放入对应目录
-2. 使用 `/export status` 查看待上报内容
-3. 使用 `/export prepare` 准备上报清单
-4. 使用 `/export submit` 提交 PR 到上游
+1. **准备内容**：在对应目录下创建 markdown 文件
+2. **格式要求**：参考 knowledge-graph/index/nodes-registry.yaml 中的 format 定义
+3. **提交 PR**：提交到 cursor-genesis 仓库
+4. **上游拉取**：knowledge-graph 通过稀疏检出拉取此目录
 
-## 内容格式
+## 文件命名规范
 
-每个文件应包含：
-- 标题和摘要
-- 问题描述
-- 解决方案
-- 验证结果
-- 相关标签
+- `capability-changes/YYYY-MM-DD-{capability-name}.md`
+- `refined-knowledge/YYYY-MM-DD-{topic}.md`
+- `feedback/YYYY-MM-DD-{feedback-type}.md`
 
-详见 `stable/packs/knowledge-manage/leaf-node/skills/node-export.skill.yaml`
+## 示例
+
+参考 `capability-changes/2026-02-26-commands-layer.md`
