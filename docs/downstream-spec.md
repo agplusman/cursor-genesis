@@ -173,8 +173,8 @@ cat .cursor-genesis/stable/packs/v1-talk/manifest.yaml
 ### 3.2 回流目录结构
 
 ```
-backflow/pending/<project-hash>/<contributor-name>/<commit-id>/
-├── SUBMISSION.md          # 使用 backflow/TEMPLATE.md 填写
+.knowledge/downstream/pending/<project-hash>/<contributor-name>/<commit-id>/
+├── SUBMISSION.md          # 使用 .knowledge/downstream/TEMPLATE.md 填写
 ├── content/               # 回流的内容
 │   ├── rules/            # 如果是规则文件
 │   ├── capabilities/     # 如果是能力定义
@@ -203,11 +203,11 @@ backflow/pending/<project-hash>/<contributor-name>/<commit-id>/
 3. **准备回流内容**
    ```bash
    # 创建回流目录
-   mkdir -p backflow/pending/anfu-test-a3f2/zhangsan/20260226-001
-   cd backflow/pending/anfu-test-a3f2/zhangsan/20260226-001
+   mkdir -p .knowledge/downstream/pending/anfu-test-a3f2/zhangsan/20260226-001
+   cd .knowledge/downstream/pending/anfu-test-a3f2/zhangsan/20260226-001
 
    # 复制 TEMPLATE.md 并填写
-   cp ../../../../TEMPLATE.md SUBMISSION.md
+   cp ../../../TEMPLATE.md SUBMISSION.md
    # 编辑 SUBMISSION.md，填写必填字段
 
    # 添加回流内容
@@ -239,7 +239,7 @@ backflow/pending/<project-hash>/<contributor-name>/<commit-id>/
 - **新增内容**（新能力、新模式）: 3-7 天
 - **重大变更**（架构调整）: 7-14 天
 
-审核通过后，内容将从 `backflow/pending/` 移动到 `backflow/processing/`，最终合并到 `stable/` 目录。
+审核通过后，内容将记录到 `.knowledge/downstream/backflow.yaml` 的 processing 状态，最终合并到 `stable/` 目录或上报到上游。
 
 ## 4. 使用示例
 

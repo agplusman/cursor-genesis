@@ -45,7 +45,7 @@
 ```
 
 **功能**：
-- 检查 `stable/knowledge/exports/` 目录
+- 检查 `.knowledge/upstream/exports/` 目录
 - 生成上报清单
 - 验证格式规范
 - 生成 PR 描述
@@ -103,7 +103,7 @@
 git checkout -b exports/2026-02-27
 
 # 2. 提交内容
-git add stable/knowledge/exports/
+git add .knowledge/upstream/exports/
 git commit -m "exports: 上报能力变更和精炼知识"
 
 # 3. 推送

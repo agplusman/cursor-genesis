@@ -23,9 +23,9 @@ description: 向 knowledge-graph 上报精炼内容
 
 ```bash
 # 检查各类型的上报内容
-ls -la stable/knowledge/exports/capability-changes/
-ls -la stable/knowledge/exports/refined-knowledge/
-ls -la stable/knowledge/exports/feedback/
+ls -la .knowledge/upstream/exports/capability-changes/
+ls -la .knowledge/upstream/exports/refined-knowledge/
+ls -la .knowledge/upstream/exports/feedback/
 ```
 
 ### 2. 生成上报清单
@@ -57,7 +57,7 @@ ls -la stable/knowledge/exports/feedback/
 git checkout -b exports/2026-02-27
 
 # 提交内容
-git add stable/knowledge/exports/
+git add .knowledge/upstream/exports/
 git commit -m "exports: 上报能力变更和精炼知识"
 
 # 推送
