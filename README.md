@@ -56,6 +56,7 @@ The smallest reusable units of AI cognition. Context-agnostic.
 
 ### 2. Packs (`stable/packs/`)
 User-facing scenario combinations. Users don't pick atoms; they install packs.
+- **`enterprise/`**: **Enterprise ODD Pack** — Meta-Rules + Ontology-Driven Development methodology, validated on a 50+ module production system. [→ View Pack](stable/packs/enterprise/README.md) | [→ Case Study](stable/packs/enterprise/case-study/security-mgmt-center.md)
 - `v1-talk/`: A conversational orchestration pack with 6 team patterns.
 - `deep-research/`: A Plan → Execute → Synthesize research workflow.
 - `knowledge-manage/`: Knowledge system management pack.
@@ -75,12 +76,17 @@ You can inject these cognitive assets into any new Cursor project without downlo
 git clone --filter=blob:none --sparse https://github.com/SYMlp/cursor-genesis.git .cursor-genesis
 cd .cursor-genesis
 
-# Inject only the enterprise meta-rules
+# Option A: Inject the full enterprise pack (meta-rules + ODD methodology + case study)
+git sparse-checkout set stable/packs/enterprise stable/atoms/rules/enterprise
+
+# Option B: Inject only the 4 meta-rules
 git sparse-checkout set stable/atoms/rules/enterprise
 
 # Copy the rules to your local cursor directory
 cp -r stable/atoms/rules/enterprise/* ../.cursor/rules/
 ```
+
+See [`stable/packs/enterprise/README.md`](stable/packs/enterprise/README.md) for the full ODD methodology guide and setup instructions.
 
 ## The Vision
 
