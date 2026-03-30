@@ -30,6 +30,19 @@ Located in `stable/atoms/rules/enterprise/`:
 4. **`rule-evolution.mdc` (Agent Self-Evolution)**
    A closed-loop system constraint. Whenever the AI detects its own behavior or cognitive path was suboptimal, it must document the failure, analyze the root cause, and rewrite its own rules to prevent future mistakes.
 
+## Provenance & Validation Status
+
+These meta-rules are **not theoretical**. They were extracted and generalized from a production enterprise system (an Enterprise Security Management Center: 6 business domains, 50+ modules, full-stack Java + Vue 3) that was delivered from zero to acceptance review in 2 weeks.
+
+| Rule | Origin | Production Validation |
+|:---|:---|:---|
+| `design-authority` | Discovered after observing 60%+ wasted token reads from legacy code scanning | Eliminated architecture drift across 50+ modules |
+| `routing-engine` | Evolved through 5 documented optimization rounds with quantified before/after metrics | Reduced diagnostic file reads from 9+ to 4-6; search operations from 5+ to 0-1 |
+| `ontology-driven-dev` | Created after measuring 35% field omission rate in first ontology extraction | Brought omission rate to near-zero across 6 domains |
+| `rule-evolution` | Meta-rule created to prevent recurring behavioral failures | 5 optimization records with full root-cause analysis |
+
+The generalized versions in this repository are the first step in making these patterns available for any enterprise-scale Cursor project. Backflow from downstream adoption will continue to refine them.
+
 ## Architecture
 
 This repository is split into two layers:
@@ -52,7 +65,7 @@ You can inject these cognitive assets into any new Cursor project without downlo
 
 ```bash
 # In your new project's root directory:
-git clone --filter=blob:none --sparse https://github.com/your-username/cursor-genesis.git .cursor-genesis
+git clone --filter=blob:none --sparse https://github.com/SYMlp/cursor-genesis.git .cursor-genesis
 cd .cursor-genesis
 
 # Inject only the enterprise meta-rules
