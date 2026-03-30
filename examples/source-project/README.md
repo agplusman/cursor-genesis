@@ -4,6 +4,8 @@
 
 These are the **original, production-tested** `.cursor/rules/` from a real enterprise project (6 business domains, 50+ modules, full-stack Java + Vue 3, delivered in 2 weeks).
 
+> **⚠️ Snapshot Notice**: These rules are a point-in-time snapshot from the project's development phase. Some modules are marked "待实现" (TODO) in `backend-dev.mdc` — this is intentional. Rules were written *before* implementation to define the target architecture, and the AI agent used them as its implementation roadmap. This is the Design-is-Authority principle in action: the rules govern what the AI should build, not document what it already built.
+
 The 4 generalized atoms in `stable/atoms/rules/enterprise/` were distilled from this full 21-rule system. This directory exists to prove provenance: these meta-rules are not theoretical — they are battle-tested.
 
 ## The Full Rule System (15 Core Rules)
