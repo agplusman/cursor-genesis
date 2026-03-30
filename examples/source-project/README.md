@@ -4,7 +4,7 @@
 
 These are the **original, production-tested** `.cursor/rules/` from a real enterprise project (6 business domains, 50+ modules, full-stack Java + Vue 3, delivered in 2 weeks).
 
-> **⚠️ Snapshot Notice**: These rules are a point-in-time snapshot from the project's development phase. Some modules are marked "待实现" (TODO) in `backend-dev.mdc` — this is intentional. Rules were written *before* implementation to define the target architecture, and the AI agent used them as its implementation roadmap. This is the Design-is-Authority principle in action: the rules govern what the AI should build, not document what it already built.
+> **⚠️ Snapshot Notice**: These rules are a point-in-time snapshot from the project's development phase. They represent the system as it was during active development — not a polished final state.
 
 The 4 generalized atoms in `stable/atoms/rules/enterprise/` were distilled from this full 21-rule system. This directory exists to prove provenance: these meta-rules are not theoretical — they are battle-tested.
 
@@ -53,6 +53,34 @@ Not all 15 rules are universally reusable. The generalization criteria:
 | **Universally applicable** | All 4 atoms | Product-mode (tri-modal is project-specific) |
 
 The remaining 11 rules represent **future generalization candidates** — as cursor-genesis encounters more downstream projects, patterns will emerge for tech-stack-specific and domain-specific atom categories.
+
+## Lessons Learned: Rule vs. Plan Confusion
+
+An honest reflection on what we got wrong in v1 — and how the generalized atoms fixed it.
+
+In the source project, some rules (e.g., `backend-dev.mdc`) mixed **behavioral constraints** with **project status tracking**:
+
+```
+# Behavioral constraint (correct, this IS a rule):
+"Inherit AbstractCrudService, only write differentiation logic"
+
+# Project status (wrong, this is NOT a rule — it's a plan):
+"├── policy/         # 策略控制（待实现，12 模块）"
+```
+
+This caused a real problem: as modules were implemented, the "status" portion of the rules became stale. The rule said "TODO" but the code already existed. Nobody went back to update the status lines — because **rules shouldn't contain status in the first place**.
+
+### How the generalized Atoms fixed this
+
+The 4 atoms in `stable/atoms/rules/enterprise/` contain **zero project status**. They are pure behavioral constraints:
+
+| Source rule problem | Atom solution |
+|:---|:---|
+| Mixed "what to build" (plan) with "how to build" (rule) | Atoms contain only "how" — never "what" |
+| Status becomes stale when not updated | No status to update |
+| Tied to specific module names | Module-agnostic, works for any project |
+
+This separation of **Rule** (timeless behavioral constraint) from **Plan** (mutable project status) is one of the key insights we extracted during the generalization process. It's documented here as a lesson for anyone building their own rule systems.
 
 ## Key Insight for Reviewers
 
