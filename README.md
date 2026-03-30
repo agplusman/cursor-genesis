@@ -49,15 +49,22 @@ This repository is split into two layers:
 
 ### 1. Atoms (`stable/atoms/`)
 The smallest reusable units of AI cognition. Context-agnostic.
-- `rules/`: Cursor Rules (`.mdc` files)
+- `rules/enterprise/`: **Enterprise Meta-Rules** — the core governance system (4 rules)
+- `rules/`: Additional base rules (production safety, project conventions)
 - `capabilities/`: Four-layer cognition bounds (insight, architecture, engineering, quality)
-- `patterns/`: Team orchestration templates
+- `patterns/`: Team orchestration templates (6 team patterns)
 
 ### 2. Packs (`stable/packs/`)
 User-facing scenario combinations. Users don't pick atoms; they install packs.
-- `enterprise-scale/`: The full meta-rule suite for massive codebases.
-- `v1-talk/`: A simplified conversational orchestration pack.
+- `v1-talk/`: A conversational orchestration pack with 6 team patterns.
 - `deep-research/`: A Plan → Execute → Synthesize research workflow.
+- `knowledge-manage/`: Knowledge system management pack.
+- `create-toolkit/`: Project scaffolding toolkit.
+
+### 3. Examples (`examples/`)
+Real-world source rules from the production enterprise project that the Enterprise Meta-Rules were extracted from. Includes the original Chinese-language rules with 60+ routing entries, proving these atoms are battle-tested — not theoretical.
+
+See [`examples/source-project/README.md`](examples/source-project/README.md) for the full source-to-generalized mapping.
 
 ## How to use (Downstream Injection)
 
