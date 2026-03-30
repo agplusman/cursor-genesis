@@ -2,13 +2,13 @@
 # 与下游项目的回流配置和记录
 
 # 回流来源项目
-sources: []
-  # 示例:
-  # - project: anfu_test
-  #   project_hash: a1b2c3d4
-  #   last_backflow: 2026-02-26
-  #   status: active
-  #   description: "安服系统，使用 cursor-genesis 的 Cursor 协作配置"
+sources:
+  - project: security-mgmt-center
+    last_backflow: 2026-04-01
+    status: active
+    description: "企业安全管理平台（6业务域/50+模块/Spring Boot + Vue 3），ODD方法论第一个验证场"
+    backflow_type: methodology-validation
+    exported_to: stable/packs/enterprise/
 
 # 待审核的回流
 pending_reviews: []
@@ -34,7 +34,16 @@ processing: []
   #   notes: "需要补充测试用例"
 
 # 已完成的回流（最近 10 条）
-completed: []
+completed:
+  - id: bf-001
+    from: security-mgmt-center
+    completed_at: 2026-04-01
+    result: accepted
+    exported_to: stable/packs/enterprise/
+    notes: |
+      ODD元方法论栈（4个方法论文件）+ enterprise pack（README/manifest/case-study）。
+      验证了Meta-Rules → 域专属规则自动生成的完整闭环。
+      量化结果：<2周交付，60% token读取节省，字段缺失率35%→~0%。
   # 示例:
   # - id: bf-003
   #   from: anfu_test

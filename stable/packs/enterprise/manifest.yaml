@@ -1,0 +1,45 @@
+# enterprise 套装
+# 定位：面向企业级多模块项目的 AI 认知治理套件，规则驱动 + 本体支撑
+
+name: enterprise
+description: |
+  生成式规则系统（Meta-Rules）+ 本体驱动开发（ODD）的完整企业套件。
+  4 条 Meta-Rules 驱动 Agent 为每个业务域自动生成专属规则，
+  配合 ODD 方法论，实现 50+ 模块规模下的 Agent 认知治理。
+version: 1.0.0
+audience: enterprise
+validated_by: security-mgmt-center（6域/50+模块/2周交付）
+
+# 引用原子层
+atoms:
+  rules:
+    - enterprise/design-authority
+    - enterprise/routing-engine
+    - enterprise/ontology-driven-dev
+    - enterprise/rule-evolution
+
+# 方法论
+methodology:
+  - ontology-extraction-rules
+  - ontology-document-guide
+  - ontology-validation-rules
+  - ontology-maintenance-guide
+
+# 核心机制
+mechanisms:
+  design_authority: 设计文档 = 唯一权威；Agent 禁止从历史代码推断架构
+  intent_routing: 意图路由表将模糊自然语言转为确定性文档读取路径
+  odd: 本体驱动开发；Agent 从领域本体推导字段和逻辑，而非猜测
+  rule_evolution: 规则自演化；低效认知路径触发规则优化记录
+  generative_rules: Meta-Rules 驱动 Agent 为新业务域自动生成专属规则
+
+# 已验证案例
+case_studies:
+  - id: security-mgmt-center
+    type: enterprise-platform
+    domains: 6
+    modules: 50+
+    delivery: "< 2 weeks (zero to acceptance)"
+    token_reduction: "60%"
+    field_missing_rate: "35% → ~0%"
+    generated_rules: 16
