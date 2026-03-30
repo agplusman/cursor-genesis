@@ -1,76 +1,70 @@
 # cursor-genesis
 
-> Cursor AI 协作研发的组件库和知识库
+> **A Generative Agentic Engineering Platform for Cursor**
+> 
+> *"Stop writing code. Start engineering how your AI writes code."*
 
-## 定位
+## What is this?
 
-这是 knowledge-graph 体系下的一个**叶子节点**，专注于 Cursor 领域。
+`cursor-genesis` is a distribution platform for reusable AI cognitive assets. 
 
-**职责**：
-- 生产 Cursor 相关的组件和知识
-- 接收使用方的回流改进
-- 暴露标准化索引供上层检索
+When configuring AI for large-scale enterprise software (e.g., 50+ modules, tens of thousands of lines of code), default AI behavior degrades: it hallucinates architectures, relies too much on legacy patterns, and loses context. 
 
-**不负责**：
-- 跨领域知识关联（上层职责）
-- 治理框架设计（leaf-node-framework 职责）
+Instead of writing manual prompts for every single module, `cursor-genesis` uses **Meta-Rules**. When we discover a robust AI working model in a production enterprise project, we crystallize it into an "**Atom**" (e.g., a `.mdc` rule) and package it into a "**Pack**" for downstream teams to inject into their own repositories via Git sparse-checkout.
 
-## 目录结构
+## The Crown Jewels: Enterprise Meta-Rules
 
-```
-cursor-genesis/
-├── meta.yaml                 # 节点元信息
-├── stable/                   # 【对外发布】稀疏检出目标
-│   ├── atoms/               # 原子层
-│   │   ├── rules/          # Cursor Rules
-│   │   ├── capabilities/   # 原子能力（四层认知）
-│   │   ├── standalone/     # 独立角色
-│   │   └── code-templates/ # 代码脚手架
-│   ├── packs/               # 套装层
-│   │   └── v1-talk/        # 简化版套装
-│   └── knowledge/           # 知识层（可被上层索引）
-│       ├── index.yaml      # 知识索引
-│       ├── cursor-specs/
-│       ├── prompt-engineering/
-│       ├── architecture-decisions/
-│       └── learnings/
-├── backflow/                 # 【回流区】
-│   ├── pending/             # 待审批
-│   └── processing/          # 处理中
-├── workspace/                # 【本地工作台】.gitignore
-└── scripts/                  # 【自动化】
-```
+Extracted from a real-world enterprise system delivery (6 domains, 50+ modules, zero to acceptance in 2 weeks), this repository contains the core meta-rules that govern how an Agent *should* behave in a massive codebase. 
 
-## 使用方式
+Located in `stable/atoms/rules/enterprise/`:
 
-### 新项目引入
+1. **`design-authority.mdc` (Design is Authority)**
+   Strictly forbids the agent from scanning legacy code to guess architecture patterns. It mandates that the Agent must read the Domain Ontology and declarative configs first, saving 60%+ in wasted, hallucinatory token reads.
+
+2. **`routing-engine.mdc` (Intent-Based Route Engine)**
+   Automatically intercepts vague natural language inputs (e.g., "the dropdown is empty") and routes them into deterministic diagnostic and file-reading pipelines. 
+
+3. **`ontology-driven-dev.mdc` (ODD Paradigm)**
+   A structured pipeline governing how the Agent should extract entity boundaries from PM specification documents, map them into a `model.yaml`, and deterministically generate code without missing fields.
+
+4. **`rule-evolution.mdc` (Agent Self-Evolution)**
+   A closed-loop system constraint. Whenever the AI detects its own behavior or cognitive path was suboptimal, it must document the failure, analyze the root cause, and rewrite its own rules to prevent future mistakes.
+
+## Architecture
+
+This repository is split into two layers:
+
+### 1. Atoms (`stable/atoms/`)
+The smallest reusable units of AI cognition. Context-agnostic.
+- `rules/`: Cursor Rules (`.mdc` files)
+- `capabilities/`: Four-layer cognition bounds (insight, architecture, engineering, quality)
+- `patterns/`: Team orchestration templates
+
+### 2. Packs (`stable/packs/`)
+User-facing scenario combinations. Users don't pick atoms; they install packs.
+- `enterprise-scale/`: The full meta-rule suite for massive codebases.
+- `v1-talk/`: A simplified conversational orchestration pack.
+- `deep-research/`: A Plan → Execute → Synthesize research workflow.
+
+## How to use (Downstream Injection)
+
+You can inject these cognitive assets into any new Cursor project without downloading the entire repository, using Git sparse-checkout.
 
 ```bash
-# 稀疏检出 v1-talk 套装
-git clone --filter=blob:none --sparse https://github.com/you/cursor-genesis.git .cursor-genesis
+# In your new project's root directory:
+git clone --filter=blob:none --sparse https://github.com/your-username/cursor-genesis.git .cursor-genesis
 cd .cursor-genesis
-git sparse-checkout set stable/packs/v1-talk stable/atoms/rules stable/atoms/capabilities
+
+# Inject only the enterprise meta-rules
+git sparse-checkout set stable/atoms/rules/enterprise
+
+# Copy the rules to your local cursor directory
+cp -r stable/atoms/rules/enterprise/* ../.cursor/rules/
 ```
 
-### 回流改进
+## The Vision
 
-```bash
-# Fork 后提交 PR 到 backflow/pending/
-git checkout -b backflow/my-improvement
-# 添加你的改进到 backflow/pending/{project-hash}/{your-name}/{commit-id}/
-git push origin backflow/my-improvement
-# 然后提 PR
-```
+Cursor is not just an IDE with autocomplete. It is a substrate for building autonomous software engineering pipelines. `cursor-genesis` aims to be the standard library for those pipelines—turning individual prompt engineering into scalable, distributable enterprise workflows.
 
-## 套装说明
-
-| 套装 | 定位 | 适用人群 |
-|:---|:---|:---|
-| v1-talk | only talk，对话触发 | 普通用户 |
-| v2-advanced | 完整功能，skill/commands/hooks | 专业用户（规划中） |
-
-## 版本
-
-当前版本：1.0.0
-
-详见 [CHANGELOG](./CHANGELOG.md)
+---
+*Built for the future of AI-native engineering.*
