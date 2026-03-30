@@ -42,6 +42,30 @@ categories:
         title: 遗留系统迁移故事
         file: sop-03-legacy-migration-story.md
         solves: 解决如何将遗留系统迁移到 Cursor 协作模式的实践问题
+      - id: deep-research
+        title: Deep Research 系统化调研
+        file: deep-research-pack.md
+        solves: 解决如何将模糊的调研需求转化为结构化的研究报告，提供 Plan→Execute→Synthesize 三阶段自动化流程
+      - id: rules-lifecycle
+        title: Rules 生命周期管理指南
+        file: rules-lifecycle.md
+        solves: 解决 .cursor/rules/ 中规则文件何时创建、何时更新、何时废弃、如何命名、如何避免冲突的管理问题
+      - id: create-toolkit
+        title: Create Toolkit 资产创建三件套
+        file: create-toolkit-pack.md
+        solves: 解决如何在 Cursor 项目中系统化地创建 Skill、Command、Subagent，提供三命令闭环级联和认知元层自动分级
+      - id: component-type-decision
+        title: 组件类型选择指南
+        file: component-type-decision-guide.md
+        solves: 解决新增内容应该做成 Rule、Skill、Command 还是 Agent 的选择问题，提供上下文加载时机梯度和调用关系矩阵
+      - id: context-management
+        title: 上下文管理指南
+        file: context-management-guide.md
+        solves: 解决 AI 对话中上下文管理的问题，提供 JIT 检索、Compaction、多 Agent 隔离、长时任务 Harness 等实践策略
+      - id: agent-autonomy
+        title: Agent 自主性选择指南
+        file: agent-autonomy-guide.md
+        solves: 解决什么任务应该给 AI 多大自主权的问题，提供从 Tab 补全到 Cloud Agent 的连续谱和匹配原则
 
   prompt-engineering:
     description: 提示词方法论
@@ -116,3 +140,9 @@ keywords:
   - knowledge-graph
   - leaf-node-framework
   - 分布式知识管理
+  - deep-research
+  - 调研
+  - create-skill
+  - create-command
+  - create-subagent
+  - 资产创建

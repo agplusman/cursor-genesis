@@ -181,6 +181,38 @@ resources:
           - capabilities (referenced)
           - patterns (referenced)
 
+      deep-research:
+        path: stable/packs/deep-research
+        description: 系统化深度调研（Plan→Execute→Synthesize 三阶段）
+        includes:
+          - commands/deep-research
+          - agents/base-research-planner
+          - agents/base-research-executor
+          - agents/base-research-synthesizer
+          - agents/base-research-analyst
+          - skills/base-research-planner
+          - skills/base-research-executor
+          - skills/base-research-synthesizer
+        dependencies:
+          mcp: [brave-search]
+        install: install-manifest.yaml
+
+      create-toolkit:
+        path: stable/packs/create-toolkit
+        description: 资产创建工具箱（Skills / Rules / Commands / Subagents 全生命周期创建与治理）
+        includes:
+          - commands/create-skill
+          - commands/create-command
+          - commands/create-subagent
+          - agents/base-skill-engineer
+          - skills/base-skill-generator
+          - skills/base-rule-generator
+          - skills/base-closure-validator
+          - skills/base-prompt-auditor (optional)
+          - skills/base-inventory-updater (optional)
+          - standards/skill-meta-standard
+        install: install-manifest.yaml
+
 # ============================================================
 # 推荐组合
 # ============================================================

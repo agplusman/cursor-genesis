@@ -13,7 +13,7 @@ NC='\033[0m'
 # 配置
 UPSTREAM_PATH="../knowledge-graph"
 META_FILE="meta.yaml"
-PENDING_DIR="pending/upstream"
+PENDING_DIR=".knowledge/upstream/received"
 
 # 打印帮助
 print_help() {
@@ -102,7 +102,7 @@ sync_status() {
 check_item() {
     local upstream_path=$1
     local display_name=$2
-    local local_path="pending/upstream/${upstream_path##*/}"
+    local local_path=".knowledge/upstream/received/${upstream_path##*/}"
 
     # 检查本地是否存在
     if [ -f "$local_path" ] || [ -d "$local_path" ]; then

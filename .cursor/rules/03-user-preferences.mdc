@@ -1,7 +1,5 @@
 ---
-description: User Preferences - Stores user-specific habits and overrides.
-globs: "**/*"
-alwaysApply: true
+description: User coding preferences, language choices, code style, and interaction style overrides. Activates when preferences conflict with role defaults.
 ---
 
 # User Preferences (V2.0)

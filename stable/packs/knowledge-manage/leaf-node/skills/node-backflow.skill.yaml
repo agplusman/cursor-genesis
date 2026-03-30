@@ -29,9 +29,9 @@ gh pr list --label backflow --state open
 ### 2. 拉取 PR 内容
 
 ```bash
-# 拉取到 backflow/pending/
+# 拉取到 .knowledge/downstream/pending/
 gh pr checkout {PR_NUMBER}
-cp -r backflow/pending/{project}/ backflow/pending/
+cp -r .knowledge/downstream/pending/{project}/ .knowledge/downstream/pending/
 ```
 
 ### 3. 审核回流质量
@@ -46,7 +46,7 @@ cp -r backflow/pending/{project}/ backflow/pending/
 
 ```bash
 # 精炼后放入 exports/
-cp backflow/processing/{item} stable/knowledge/exports/capability-changes/
+cp .knowledge/downstream/processing/{item} .knowledge/upstream/exports/capability-changes/
 ```
 
 ## 相关命令

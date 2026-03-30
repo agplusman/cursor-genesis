@@ -30,6 +30,17 @@ downstream projects (consumers via sparse checkout)
 ## Directory Structure
 
 ```
+.knowledge/               # Knowledge management metadata
+├── meta.yaml            # Node metadata
+├── upstream/            # Interaction with knowledge-graph
+│   ├── sync.yaml       # Sync configuration
+│   ├── exports/        # Content to report upstream
+│   └── received/       # Recommendations from upstream
+└── downstream/          # Interaction with downstream projects
+    ├── backflow.yaml   # Backflow configuration
+    ├── pending/        # Pending backflow reviews
+    └── processing/     # In-progress backflow
+
 stable/                   # Published assets (sparse checkout target)
 ├── atoms/               # Atomic layer - smallest reusable units
 │   ├── rules/          # Cursor Rules (.mdc files) → .cursor/rules/
@@ -39,19 +50,32 @@ stable/                   # Published assets (sparse checkout target)
 │   ├── skills/         # Skill definitions (.skill.yaml)
 │   └── code-templates/ # DDD/Java/Vue scaffolding
 ├── packs/               # Package layer - scenario-based combinations
-│   └── v1-talk/        # Talk-only package (6 team patterns)
+│   ├── v1-talk/        # Talk-only package (6 team patterns)
+│   ├── deep-research/  # Deep research (Plan→Execute→Synthesize)
+│   └── knowledge-manage/ # Knowledge management package
 └── knowledge/           # Knowledge layer (indexed by upper layer)
     ├── index.yaml      # Knowledge index with `solves` field
     └── ...categories/
 
-backflow/                 # Improvement backflow area
-├── pending/             # Awaiting review
-└── processing/          # In progress
-
 scripts/                  # Maintenance tools (not part of assets)
+├── install-pack.py      # Pack installer (deploy packs to target projects)
+└── ...                  # Other scripts
 ```
 
 ## Key Concepts
+
+### Template vs Published (Skill Ownership)
+
+Skills/components fall into two categories by **who controls them**:
+
+| Type | Control | Customization | cursor-genesis role |
+|:---|:---|:---|:---|
+| **Template** | User | Derive variants per project (backbone fixed, variants vary by context) | Produces these—scaffolds for customization |
+| **Published** | Publisher | Use as-is or wrap externally; do not modify internals | Does not produce; user gets from external sources (e.g. `~/.cursor/skills/`) |
+
+cursor-genesis produces **Template**-type components: atoms and packs are scaffolds that users adapt per project. Published skills (e.g. PPTX, xlsx, OpenClaw) come from elsewhere and are consumed directly.
+
+See `knowledge-graph/meta/derivation/skill-template-vs-published-taxonomy-2026-03-08.md` for full derivation.
 
 ### Atoms + Packs Two-Layer Architecture
 
@@ -102,19 +126,19 @@ Environment variables: `LLM_API_BASE`, `LLM_API_KEY`, `LLM_MODEL`
 When improvements are made in downstream projects:
 
 1. Fork and create branch: `backflow/my-improvement`
-2. Create directory: `backflow/pending/{project-hash}/{contributor}/{commit-id}/`
-3. Copy and fill `backflow/TEMPLATE.md` as `SUBMISSION.md`
+2. Create directory: `.knowledge/downstream/pending/{project-hash}/{contributor}/{commit-id}/`
+3. Copy and fill `TEMPLATE.md` as `SUBMISSION.md`
 4. Add content to `content/` subdirectory
 5. Submit PR
 
-See `backflow/README.md` and `docs/downstream-spec.md` for details.
+See `.knowledge/downstream/pending/README.md` and `docs/downstream-spec.md` for details.
 
 ## File Conventions
 
 - Rules use `.mdc` extension (Markdown with Cursor metadata)
 - Skills use `.skill.yaml` extension
 - Knowledge index uses `solves` field for problem-oriented lookup
-- Node metadata in `meta.yaml` follows leaf-node-framework spec
+- Node metadata in `.knowledge/meta.yaml` follows leaf-node-framework spec
 
 ## Integration with knowledge-graph
 

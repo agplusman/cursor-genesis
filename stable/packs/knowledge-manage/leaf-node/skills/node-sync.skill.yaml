@@ -8,7 +8,7 @@ description: 从 knowledge-graph 同步推荐内容到叶子节点
 
 - 读取上游推荐清单
 - 执行 git sparse-checkout
-- 管理 pending/upstream/ 目录
+- 管理 .knowledge/upstream/received/ 目录
 - 审核和合入流程
 
 ## 使用场景
@@ -39,14 +39,14 @@ git sparse-checkout set {files}
 git checkout knowledge-graph/main -- {files}
 ```
 
-### 3. 管理 pending 目录
+### 3. 管理 received 目录
 
 ```bash
-# 拉取到 pending/upstream/
-cp -r {files} pending/upstream/
+# 拉取到 .knowledge/upstream/received/
+cp -r {files} .knowledge/upstream/received/
 
 # 审核通过后合入
-cp -r pending/upstream/{files} stable/knowledge/
+cp -r .knowledge/upstream/received/{files} stable/knowledge/
 ```
 
 ## 相关命令

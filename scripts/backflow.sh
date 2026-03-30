@@ -11,7 +11,7 @@ RED='\033[0;31m'
 NC='\033[0m'
 
 # 配置
-EXPORTS_DIR="stable/knowledge/exports"
+EXPORTS_DIR=".knowledge/upstream/exports"
 META_FILE="meta.yaml"
 
 # 打印帮助

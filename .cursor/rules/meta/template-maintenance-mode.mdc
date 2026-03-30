@@ -1,6 +1,5 @@
 ---
-description: Template Maintenance Mode - Activates when modifying the scaffold itself (_meta, prompts-library).
-alwaysApply: true
+description: Template Maintenance Mode - Activates when modifying the scaffold itself (_meta, prompts-library). Use @template-maintenance-mode to invoke manually.
 ---
 # Rule: Template Maintenance Mode (V3.3 - Incubation Ready)
 

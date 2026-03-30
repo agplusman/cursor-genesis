@@ -1,7 +1,5 @@
 ---
-description: Project Collaboration Playbook - Defines the project lifecycle as a State Machine.
-globs: "**/*"
-alwaysApply: true
+description: Project lifecycle state machine for bootstrapping, development, maintenance, or handover phases. Activates when discussing project status transitions or milestone delivery.
 ---
 
 # Project Collaboration Playbook (V4.1 - Prometheus Edition)

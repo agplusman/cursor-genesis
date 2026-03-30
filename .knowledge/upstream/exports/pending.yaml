@@ -193,3 +193,22 @@ items:
       - 模板化：使用可复用的结构模板
       - 约束明确：定义边界和禁止行为
     applicable_scenario: 任何 AI 工具的提示词设计，不限于 Cursor
+
+  # ============================================================
+  # 五、目录结构洞察（从实践中回流）
+  # ============================================================
+
+  - id: directory-restructuring-insight
+    title: 目录结构重组洞察——先打通再收缩
+    source: .knowledge/upstream/exports/refined-knowledge/2026-02-28-directory-restructuring-insight.md
+    type: refined_knowledge
+    content_status: stable
+    knowledge_type: methodology
+    validation_level: 2
+    problem_domain: 如何在叶子节点中平衡流程完整性与用户认知友好
+    solution_summary: |
+      目录结构设计的两阶段方法：
+      - 阶段一：在现有结构上先打通上下游完整流程
+      - 阶段二：按使用场景维度重组，把相关内容归拢到一起
+      背后认知：先运行才知道什么相关，减少同级目录降低认知负荷
+    applicable_scenario: 知识管理系统目录设计、信息架构优化、叶子节点结构调整

@@ -129,6 +129,7 @@ presets:
       - stable/atoms/rules/teams/strategic-research-team.mdc
       - stable/atoms/capabilities/01_insight
       - stable/atoms/skills
+      - stable/packs/deep-research
     install:
       - source: stable/atoms/rules/teams/topic-research-team.mdc
         target: .cursor/rules/teams/topic-research-team.mdc
@@ -137,6 +138,9 @@ presets:
       - source: stable/atoms/skills
         target: .cursor/skills
         type: directory
+      - source: stable/packs/deep-research
+        target: .cursor
+        type: pack
 
   knowledge-management:
     description: 知识管理配置

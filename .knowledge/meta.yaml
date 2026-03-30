@@ -3,7 +3,7 @@
 
 id: cursor-genesis
 name: Cursor 协作模板
-version: 1.2.0
+version: 1.5.0
 domain: 工具-Cursor
 description: |
   Cursor AI 协作研发的组件库和知识库。
@@ -13,7 +13,7 @@ description: |
 framework:
   upstream: knowledge-graph
   index_file: stable/knowledge/index.yaml
-  export_path: stable/knowledge/exports/
+  export_path: .knowledge/upstream/exports/
   reporting:
     method: git_sparse_checkout
     description: 通过 exports/ 目录上报内容，上游用稀疏检出拉取
@@ -97,6 +97,27 @@ lifecycle:
 
 # 版本记录
 changelog:
+  - version: 1.5.0
+    date: 2026-03-03
+    changes:
+      - "v2 选择性接入：从 personal_knowlegy/v2 提取精华，不搬入企业级治理架构"
+      - 新增 3 篇知识文档（component-type-decision-guide / context-management-guide / agent-autonomy-guide）
+      - 新增 3 个 atoms/commands（/checkpoint + /resume + /fix-bug）
+      - 知识来源：v2 原创思想 + Anthropic 16 篇研究笔记 + Cursor 2026 演进研究
+  - version: 1.4.0
+    date: 2026-03-03
+    changes:
+      - 新增 create-toolkit Pack：资产创建三件套（/create-skill + /create-command + /create-subagent）
+      - 三命令互相路由形成闭环级联（create-command → create-subagent → create-skill）
+      - 含认知元层支持（L0/L1/L2 自动分级）、学习型工厂检索、引用完整性校验
+      - Pack 包含 3 个 commands、1 个 agent、4 个 skills、1 个 standard、9 篇知识库文档
+      - 统一路径引用为 .cursor/skills/ 命名空间（与 deep-research 一致）
+  - version: 1.3.0
+    date: 2026-03-02
+    changes:
+      - 新增 deep-research Pack：系统化深度调研（Plan→Execute→Synthesize 三阶段）
+      - 新增 install-pack.py 通用 Pack 安装脚本
+      - Pack 包含 1 个 command、4 个 agents、3 个 skills
   - version: 1.2.0
     date: 2026-02-26
     changes:

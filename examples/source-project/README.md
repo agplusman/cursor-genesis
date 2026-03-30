@@ -8,38 +8,72 @@ These are the **original, production-tested** `.cursor/rules/` from a real enter
 
 The 4 generalized atoms in `stable/atoms/rules/enterprise/` were distilled from this full 21-rule system. This directory exists to prove provenance: these meta-rules are not theoretical — they are battle-tested.
 
+## Directory Structure
+
+Rules are organized by category to show the generalization logic:
+
+```
+rules/
+├── core-governance/        ← The 4 rules that became universal Atoms
+│   ├── design-is-authority.mdc
+│   ├── workflow-router.mdc
+│   ├── ontology-workflow.mdc
+│   └── rule-optimization-guide.mdc
+├── tech-stack/             ← Framework-specific (Vue 3, Spring Boot)
+│   ├── frontend-dev.mdc
+│   ├── backend-dev.mdc
+│   └── test-ops.mdc
+├── domain-specific/        ← Tied to this project's business domain
+│   ├── security-domain.mdc
+│   ├── entity-boundary.mdc
+│   └── technical-ontology.mdc
+├── process/                ← Project phase & workflow rules
+│   ├── product-mode.mdc
+│   ├── project-map.mdc
+│   ├── acceptance-guide.mdc
+│   ├── research-guide.mdc
+│   └── integration-dev.mdc
+└── auto-generated/         ← 🔥 AI-generated domain rules
+    ├── asset.mdc
+    ├── identity.mdc
+    ├── policy.mdc
+    ├── affairs.mdc
+    ├── posture.mdc
+    └── knowledge.mdc
+```
+
 ## The Full Rule System (15 Core Rules)
 
-| # | Rule File | Purpose | Generalized into Atom? |
-|:---|:---|:---|:---|
-| 1 | `design-is-authority.mdc` | Forbids AI from using legacy code as authority | ✅ → `design-authority.mdc` |
-| 2 | `workflow-router.mdc` | 60+ intent routes across 4 operational modes | ✅ → `routing-engine.mdc` |
-| 3 | `ontology-workflow.mdc` | ODD lifecycle (extract → config → generate → validate) | ✅ → `ontology-driven-dev.mdc` |
-| 4 | `rule-optimization-guide.mdc` | Closed-loop rule self-improvement | ✅ → `rule-evolution.mdc` |
-| 5 | `product-mode.mdc` | Tri-modal architecture (Dev / Acceptance / User) | — *(project-type specific)* |
-| 6 | `project-map.mdc` | Full project index: modules, status, key files | — *(project-specific)* |
-| 7 | `frontend-dev.mdc` | ListPageEngine-driven frontend conventions | — *(tech-stack specific)* |
-| 8 | `backend-dev.mdc` | Spring Boot / MyBatis scaffold conventions | — *(tech-stack specific)* |
-| 9 | `entity-boundary.mdc` | Entity boundary and composition principles | — *(future atom candidate)* |
-| 10 | `test-ops.mdc` | Testing conventions, commands, infra specs | — *(tech-stack specific)* |
-| 11 | `security-domain.mdc` | Business domain knowledge (6 security domains) | — *(domain-specific)* |
-| 12 | `technical-ontology.mdc` | Technical ontology maintenance (tables, modules, mappings) | — *(partially in ODD atom)* |
-| 13 | `acceptance-guide.mdc` | Acceptance review workflows | — *(project-phase specific)* |
-| 14 | `research-guide.mdc` | Technical research conventions | — *(reuse candidate)* |
-| 15 | `integration-dev.mdc` | External system integration conventions | — *(project-specific)* |
+| # | Category | Rule File | Purpose | Generalized into Atom? |
+|:---|:---|:---|:---|:---|
+| 1 | `core-governance/` | `design-is-authority.mdc` | Forbids AI from using legacy code as authority | ✅ → `design-authority.mdc` |
+| 2 | `core-governance/` | `workflow-router.mdc` | 60+ intent routes across 4 operational modes | ✅ → `routing-engine.mdc` |
+| 3 | `core-governance/` | `ontology-workflow.mdc` | ODD lifecycle (extract → config → generate → validate) | ✅ → `ontology-driven-dev.mdc` |
+| 4 | `core-governance/` | `rule-optimization-guide.mdc` | Closed-loop rule self-improvement | ✅ → `rule-evolution.mdc` |
+| 5 | `process/` | `product-mode.mdc` | Tri-modal architecture (Dev / Acceptance / User) | — *(project-type specific)* |
+| 6 | `process/` | `project-map.mdc` | Full project index: modules, status, key files | — *(project-specific)* |
+| 7 | `tech-stack/` | `frontend-dev.mdc` | ListPageEngine-driven frontend conventions | — *(tech-stack specific)* |
+| 8 | `tech-stack/` | `backend-dev.mdc` | Spring Boot / MyBatis scaffold conventions | — *(tech-stack specific)* |
+| 9 | `domain-specific/` | `entity-boundary.mdc` | Entity boundary and composition principles | — *(future atom candidate)* |
+| 10 | `tech-stack/` | `test-ops.mdc` | Testing conventions, commands, infra specs | — *(tech-stack specific)* |
+| 11 | `domain-specific/` | `security-domain.mdc` | Business domain knowledge (6 security domains) | — *(domain-specific)* |
+| 12 | `domain-specific/` | `technical-ontology.mdc` | Technical ontology maintenance (tables, modules, mappings) | — *(partially in ODD atom)* |
+| 13 | `process/` | `acceptance-guide.mdc` | Acceptance review workflows | — *(project-phase specific)* |
+| 14 | `process/` | `research-guide.mdc` | Technical research conventions | — *(reuse candidate)* |
+| 15 | `process/` | `integration-dev.mdc` | External system integration conventions | — *(project-specific)* |
 
-## Auto-Generated Domain Rules (`modules/`)
+## Auto-Generated Domain Rules (`rules/auto-generated/`)
 
-These 6 rules were **not hand-written**. They were generated by the AI agent under the governance of the 15 meta-rules above — proving the "rules that generate rules" claim:
+These 6 rules were **not hand-written**. They were generated by the AI agent under the governance of the 15 core rules above — proving the "rules that generate rules" claim:
 
 | Module Rule | Business Domain | Generated from |
 |:---|:---|:---|
-| `modules/asset.mdc` | Asset Management (largest, 6487 bytes) | Ontology extraction + meta-rule governance |
-| `modules/identity.mdc` | Identity Management | Same pipeline |
-| `modules/policy.mdc` | Policy Management | Same pipeline |
-| `modules/affairs.mdc` | Security Affairs | Same pipeline |
-| `modules/posture.mdc` | Posture Analysis | Same pipeline |
-| `modules/knowledge.mdc` | Security Knowledge | Same pipeline |
+| `auto-generated/asset.mdc` | Asset Management (largest, 6487 bytes) | Ontology extraction + meta-rule governance |
+| `auto-generated/identity.mdc` | Identity Management | Same pipeline |
+| `auto-generated/policy.mdc` | Policy Management | Same pipeline |
+| `auto-generated/affairs.mdc` | Security Affairs | Same pipeline |
+| `auto-generated/posture.mdc` | Posture Analysis | Same pipeline |
+| `auto-generated/knowledge.mdc` | Security Knowledge | Same pipeline |
 
 ## Why Only 4 Were Generalized?
 

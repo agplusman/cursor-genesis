@@ -11,13 +11,18 @@
 ├── meta.yaml                # 叶子节点元信息
 ├── upstream/                # 与上游 knowledge-graph 的交互
 │   ├── sync.yaml           # 同步配置和记录
-│   └── exports/            # 待上报内容
-│       ├── capability-changes/
-│       ├── refined-knowledge/
-│       └── feedback/
+│   ├── exports/            # 待上报内容
+│   │   ├── capability-changes/
+│   │   ├── refined-knowledge/
+│   │   └── feedback/
+│   └── received/           # 上游推荐内容
+│       ├── roots/          # 根事实
+│       ├── topics/         # 主题索引
+│       └── specs/          # 规范文档
 └── downstream/              # 与下游项目的交互
     ├── backflow.yaml       # 回流配置和记录
-    └── pending/            # 待处理回流
+    ├── pending/            # 待处理回流
+    └── processing/         # 处理中回流
 ```
 
 ## 核心文件说明
@@ -39,6 +44,13 @@
 - 已同步的推荐清单
 - 同步范围配置
 - 同步历史
+
+### upstream/received/
+
+存放从上游 knowledge-graph 拉取的推荐内容：
+- `roots/` - 根事实（认知科学、计算理论等）
+- `topics/` - 主题索引（AI 协作、提示词工程等）
+- `specs/` - 规范文档（叶子节点规范等）
 
 ### upstream/exports/
 

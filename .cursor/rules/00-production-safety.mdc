@@ -1,7 +1,5 @@
 ---
-description: Production Safety Protocol - Defines absolute boundaries and prohibited actions for legacy/production codebases.
-globs: "**/*"
-alwaysApply: true
+description: Production safety checks when modifying core business logic, production configs, or database migrations. Activates when destructive or high-risk file changes are discussed.
 ---
 
 # 🛡️ Production Safety Protocol (The "Iron Dome")
