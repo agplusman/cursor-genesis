@@ -35,6 +35,28 @@
 | `ontology-driven-dev.mdc` | 本体驱动开发，Agent 从领域本体而非代码推导字段和逻辑 |
 | `rule-evolution.mdc` | 规则自演化，Agent 行为路径低效时触发规则优化记录 |
 
+### Plan 模板（`stable/atoms/plan-templates/`，v1.1 新增）
+
+工程化协作 plan 的可复用模板——把"plan 即协作契约"的设计原则固化为可复制的脚手架：
+
+| 模板 | 适用 | 解决的问题 |
+|:---|:---|:---|
+| `engineered-multi-phase-plan.template.md` | 多 Phase + 多 sub-agent + 编译可验证的工程任务 | sub-agent clean context 启动时的"我以为它知道"协作缝隙 |
+
+派生原则：`plan-as-collaboration-contract`（plan 形态必须随协作主体演化为契约）。
+抽象自 secmgr 4 月 81 个工程化 plan（91% 完成率）的成熟形态。
+
+### 工程实践 Skills（`stable/atoms/skills/`，v1.2 新增）
+
+跨项目通用的工程实践方法论以独立 skill 形式承载，避免每个项目重复维护同一份运维经验：
+
+| Skill | 适用 | 解决的问题 |
+|:---|:---|:---|
+| `java-backend-test-ops/SKILL.md` | Java + Maven + Spring Boot 3.x + Testcontainers + Docker Desktop | Testcontainers 留守容器累积导致 InnoDB EAGAIN（AIO 槽位耗尽）；Spring Boot 3.x MockMvc API @NonNull 注解告警扩散；共享测试基类变更传播失控 |
+
+派生原则：`cross-project-workflow-belongs-to-leaf-node`（跨项目可复用方法论应抽离到叶子节点 cursor-genesis）。
+抽象自 secmgr-test-ops §六 §九 通用化抽离（见 knowledge-graph rule_to_skill_distillation Phase 4）。
+
 ### ODD 方法论（`methodology/`）
 
 领域本体的生成和维护方法论——从业务文档到形式化本体的可复制流程：
@@ -55,10 +77,18 @@
 ```bash
 git clone --filter=blob:none --sparse https://github.com/SYMlp/cursor-genesis.git .cursor-genesis
 cd .cursor-genesis
-git sparse-checkout set stable/packs/enterprise stable/atoms/rules/enterprise
+git sparse-checkout set \
+  stable/packs/enterprise \
+  stable/atoms/rules/enterprise \
+  stable/atoms/plan-templates \
+  stable/atoms/skills/java-backend-test-ops
 ```
 
 将 `stable/atoms/rules/enterprise/*.mdc` 复制到你项目的 `.cursor/rules/` 目录，然后按 `methodology/` 的流程为你的业务域建立本体。
+
+复制 `stable/atoms/plan-templates/engineered-multi-phase-plan.template.md` 作为后续 plan 创建的脚手架（首次创建 plan 时复制并按 `<<< ... >>>` 占位符填空）。
+
+如果你的项目用 Java + Spring Boot 3.x + Testcontainers，复制 `stable/atoms/skills/java-backend-test-ops/SKILL.md` 到 `.cursor/skills/java-backend-test-ops/SKILL.md`，让 Agent 在你跑集成测试遇到 EAGAIN 或 MockMvc 告警时主动召回。
 
 ## 适用场景
 

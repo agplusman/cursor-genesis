@@ -1,7 +1,7 @@
 # cursor-genesis 可用资源清单
 # 供 cg-install skill 使用
 
-version: 1.1.0
+version: 1.2.0
 description: cursor-genesis 提供的可复用资源清单
 
 # ============================================================
@@ -123,7 +123,7 @@ resources:
   # Skills - 技能封装
   # ------------------------------------------------------------
   skills:
-    description: 工具和命令的封装
+    description: 工具和命令的封装（含命令封装型 .skill.yaml 与方法论型 SKILL.md 两种格式）
     path: stable/atoms/skills
 
     items:
@@ -131,16 +131,26 @@ resources:
         file: kg-search.skill.yaml
         description: 搜索 knowledge-graph 中的知识
         category: knowledge-management
+        format: command-wrapper
 
       kg-assemble:
         file: kg-assemble.skill.yaml
         description: 组装主题内容
         category: knowledge-management
+        format: command-wrapper
 
       cg-install:
         file: cg-install.skill.yaml
         description: 安装 cursor-genesis 资源
         category: setup
+        format: command-wrapper
+
+      java-backend-test-ops:
+        file: java-backend-test-ops/SKILL.md
+        description: Java 后端测试运维方法论 — Testcontainers 资源治理 + Spring Boot 3.x Null-Safety 规范 + 共享测试基类变更传播
+        category: engineering-practices
+        format: methodology
+        added_in: v1.2.0
 
   # ------------------------------------------------------------
   # Code Templates - 代码模板
@@ -303,6 +313,12 @@ compatibility:
 # ============================================================
 
 changelog:
+  - version: 1.2.0
+    date: 2026-04-18
+    changes:
+      - 新增 java-backend-test-ops（方法论型 SKILL.md），承载 Testcontainers 资源治理 + Spring Boot 3.x Null-Safety + 共享测试基类变更传播
+      - skills items 增加 format 字段（command-wrapper / methodology）区分两类承载形式
+      - 配合 enterprise pack v1.2.0 与 knowledge-graph rule_to_skill_distillation Phase 4
   - version: 1.1.0
     date: 2026-02-26
     changes:

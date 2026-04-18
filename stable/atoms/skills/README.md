@@ -5,6 +5,7 @@
 ## 什么是 Skill
 
 Skill 是对工具或命令的封装，提供：
+
 - 清晰的参数定义
 - 使用场景说明
 - 故障排查指南
@@ -18,6 +19,14 @@ Skill 是对工具或命令的封装，提供：
 |:---|:---|:---|
 | [kg-search](kg-search.skill.yaml) | 搜索 knowledge-graph 中的知识 | `/kg-search cursor --deep` |
 | [kg-assemble](kg-assemble.skill.yaml) | 组装主题内容 | `/kg-assemble ai-collaboration --pretty` |
+
+### Engineering Practices（v1.2 新增）
+
+| Skill | 描述 | 触发场景 |
+|:---|:---|:---|
+| [java-backend-test-ops](java-backend-test-ops/SKILL.md) | Java 后端测试运维方法论：Testcontainers 资源治理 + Spring Boot 3.x Null-Safety 规范 + 共享测试基类变更传播 | Testcontainers 报 EAGAIN / MockMvc @NonNull 告警 / 改测试基类前评估影响 |
+
+> 注：Engineering Practices 类 skill 用 SKILL.md 目录格式（YAML frontmatter + Markdown 主体），与 `.skill.yaml` 命令封装格式分开承载——前者是方法论参考，后者是命令操作。
 
 ## 使用方式
 

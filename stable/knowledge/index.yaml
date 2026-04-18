@@ -82,6 +82,25 @@ categories:
     path: learnings/
     items: []  # 待迁移填充
 
+  engineering-practices:
+    description: 工程实践方法论（语言/框架级可复用约束与运维经验）
+    path: ../atoms/skills/  # 实际承载于 atoms 层 SKILL.md，本 category 仅作上层检索入口
+    items:
+      - id: java-backend-test-ops
+        title: Java 后端测试运维方法论
+        file: ../atoms/skills/java-backend-test-ops/SKILL.md
+        solves: 解决 Java + Spring Boot 3.x + Testcontainers 项目中的两类高频痛点——Testcontainers 留守容器累积导致 InnoDB EAGAIN（AIO 槽位耗尽），以及 Spring Boot 3.x MockMvc API @NonNull 注解带来的 null-safety 告警扩散；附带共享测试基类变更传播规则
+        keywords:
+          - testcontainers
+          - spring-boot
+          - mysql
+          - docker
+          - java
+          - maven
+          - mockmvc
+          - eagain
+          - null-safety
+
   knowledge-system:
     description: 知识体系设计文档
     path: knowledge-system/
